@@ -24,3 +24,6 @@ ALTER TABLE all_2509.cross_join_temp RENAME COLUMN "Profit Percentage
  (%)" TO profit_percentage;
 ALTER TABLE all_2509.cross_join_temp RENAME COLUMN "Profit (INR)" TO profit_inr;
 ALTER TABLE all_2509.cross_join_temp RENAME COLUMN "Cost Price" TO cost_price;
+ALTER TABLE all_2509.cross_join_temp RENAME COLUMN "Gender
+F=1665
+M=1815" TO gender_fm;
