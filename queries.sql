@@ -19,7 +19,7 @@ AND table_name = 'cross_join_temp'
 
 -- query4
 SELECT
-    SUM(id) +
+    ROUND((SUM(id) +
     SUM(qtr) +
     SUM("year") +
     SUM("month") +
@@ -40,12 +40,13 @@ SELECT
     SUM(total_amount) +
     SUM(profit_percentage) +
     SUM(profit_inr) +
-    SUM(cost_price)
+    SUM(cost_price))::NUMERIC, 2)
 FROM all_2509.cross_join_temp
 
 -- query5
 SELECT
-SUM(id +
+ROUND(SUM(
+id +
 qtr +
 "year" +
 "month" +
@@ -67,7 +68,7 @@ total_amount +
 profit_percentage +
 profit_inr +
 cost_price
-)
+)::NUMERIC, 2)
 FROM all_2509.cross_join_temp
 
 -- query6
