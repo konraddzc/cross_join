@@ -1,21 +1,21 @@
 -- query1
  SELECT 
  count(id)
- FROM cross_join_temp
+ FROM cross_join
  
 
 -- query2
  SELECT DISTINCT
  count(id)
- FROM cross_join_temp
+ FROM cross_join
 
 -- query3
-SELECT 
+SELECT
 COUNT(column_name)
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE table_catalog = 'pagila'
 AND table_schema = 'all_2509'
-AND table_name = 'cross_join_temp'
+AND table_name = 'cross_join'
 
 -- query4
 SELECT
@@ -24,15 +24,15 @@ SELECT
     SUM("year") +
     SUM("month") +
     SUM(day_of_month) +
-    SUM(special_day) +
-    SUM(online_sale_offers) +
+    SUM(is_special_day) +
+    SUM(is_online_sale_offers) +
     SUM(day_of_week) +
-    SUM(weekend) +
-    SUM(morning) +
-    SUM(afternoon) +
-    SUM(evening) +
-    SUM(night) +
-    SUM(isfemale) +
+    SUM(is_weekend) +
+    SUM(is_morning) +
+    SUM(is_afternoon) +
+    SUM(is_evening) +
+    SUM(is_night) +
+    SUM(is_female) +
     SUM(quantity) +
     SUM(item_price) +
     SUM(shipping_price) +
@@ -41,7 +41,7 @@ SELECT
     SUM(profit_percentage) +
     SUM(profit_inr) +
     SUM(cost_price))::NUMERIC, 2)
-FROM all_2509.cross_join_temp
+FROM all_2509.cross_join
 
 -- query5
 SELECT
@@ -51,15 +51,15 @@ qtr +
 "year" +
 "month" +
 day_of_month +
-special_day +
-online_sale_offers +
+is_special_day +
+is_online_sale_offers +
 day_of_week +
-weekend +
-morning +
-afternoon +
-evening +
-night +
-isfemale +
+is_weekend +
+is_morning +
+is_afternoon +
+is_evening +
+is_night +
+is_female +
 quantity +
 item_price +
 shipping_price +
@@ -69,20 +69,19 @@ profit_percentage +
 profit_inr +
 cost_price
 )::NUMERIC, 2)
-FROM all_2509.cross_join_temp
+FROM all_2509.cross_join
 
 -- query6
 SELECT 
 id,purchase_date
 FROM
-all_2509.cross_join_temp
+all_2509.cross_join
 ORDER BY
 RANDOM()
 LIMIT 5;
 
 -- query7
-SELECT 
-id,
+SELECT id,
 purchase_date,
 ddmmyyyy,
 "time",
@@ -91,25 +90,15 @@ qtr,
 "year",
 "month",
 day_of_month,
-special_day,
-online_sale_offers,
-day_of_week,
-weekend,
-morning,
-afternoon,
-evening,
-night,
-isfemale,
-customer_id,
-gender_fm,
-product_name,
-item_status,
-quantity,
-currency,
-item_price,
-shipping_price,
-ship_city,
-ship_state,
+is_special_day,
+is_online_sale_offers,
+day_of_week, is_weekend,
+is_morning, is_afternoon,
+is_evening, is_night, is_female,
+customer_id, gender, product_name,
+item_status, quantity, currency,
+item_price, shipping_price,
+ship_city, ship_state,
 ship_postal_code,
 category,
 total_amount,
@@ -118,8 +107,7 @@ author,
 profit_percentage,
 profit_inr,
 cost_price
-FROM
-all_2509.cross_join_temp
+FROM all_2509.cross_join
 ORDER BY
 RANDOM()
 LIMIT 5;
