@@ -5,7 +5,7 @@ FROM cross_join;
 
 -- query2
 SELECT DISTINCT
-    id
+    count(id)
 FROM cross_join;
 
 -- query3
