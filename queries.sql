@@ -73,7 +73,8 @@ FROM all_2509.cross_join
 
 -- query6
 SELECT 
-id,purchase_date
+id,
+ddmmyyyy
 FROM
 all_2509.cross_join
 ORDER BY
