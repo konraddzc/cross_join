@@ -32,6 +32,7 @@ all_2509.cross_join_temp
 ORDER BY
 RANDOM()
 LIMIT 5;
+
 -- query7
 SELECT 
 id
@@ -40,3 +41,14 @@ all_2509.cross_join_temp
 ORDER BY
 RANDOM()
 LIMIT 5;
+
+-- query8
+SELECT
+	lower(ship_city)
+	, count(lower(ship_city))
+FROM 
+	all_2509.cross_join_temp
+GROUP BY 
+	lower(ship_city)
+ORDER BY
+	count(lower(ship_city)) DESC;
