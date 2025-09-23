@@ -101,3 +101,13 @@ FROM
     cross_join
 WHERE
     morning = 1;
+
+--sql query 12
+
+SELECT
+ship_state, avg(shipping_price) AS average_shipping_price,
+SUM(total_amount) AS total_per_state
+FROM cross_join
+GROUP BY ship_state
+ORDER BY total_per_state DESC
+LIMIT 5;
