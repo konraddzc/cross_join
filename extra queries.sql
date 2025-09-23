@@ -101,3 +101,14 @@ FROM
     cross_join
 WHERE
     is_morning = 1;
+
+-- sql query 12
+SELECT
+    day_of_week,
+    count(*) AS counter
+FROM
+    all_2509.cross_join
+GROUP BY
+    day_of_week
+ORDER BY
+    counter DESC;
