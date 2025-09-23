@@ -21,11 +21,11 @@ SELECT
     id,
     purchase_date,
     ddmmyyyy,
-    time,
-    quarter,
+    time_of_purchase,
+    quarter_of_purchase,
     qtr,
-    year,
-    month,
+    year_of_purchase,
+    month_of_purchase,
     day_of_month,
     is_special_day,
     is_online_sale_offers,
@@ -50,7 +50,7 @@ SELECT
     category,
     total_amount,
     author,
-    publication,
+    publication_name,
     profit_percentage,
     profit_inr,
     cost_price
@@ -60,11 +60,11 @@ WHERE
     id IS NULL OR
     purchase_date IS NULL OR
     ddmmyyyy IS NULL OR
-    time IS NULL OR
-    quarter IS NULL OR
+    time_of_purchase IS NULL OR
+    quarter_of_purchase IS NULL OR
     qtr IS NULL OR
-    year IS NULL OR
-    month IS NULL OR
+    year_of_purchase IS NULL OR
+    month_of_purchase IS NULL OR
     day_of_month IS NULL OR
     is_special_day IS NULL OR
     is_online_sale_offers IS NULL OR
@@ -89,25 +89,15 @@ WHERE
     category IS NULL OR
     total_amount IS NULL OR
     author IS NULL OR
-    publication IS NULL OR
+    publication_name IS NULL OR
     profit_percentage IS NULL OR
     profit_inr IS NULL OR
     cost_price IS NULL;
 
 -- sql query 11
 SELECT
-    count(morning)
+    count(is_morning)
 FROM
     cross_join
 WHERE
-    morning = 1;
-
---sql query 12
-
-SELECT
-ship_state, avg(shipping_price) AS average_shipping_price,
-SUM(total_amount) AS total_per_state
-FROM cross_join
-GROUP BY ship_state
-ORDER BY total_per_state DESC
-LIMIT 5;
+    is_morning = 1;
