@@ -21,10 +21,9 @@ WHERE
 SELECT
     round(
         (
-            sum(id) +
             sum(qtr) +
-            sum(year) +
-            sum(month) +
+            sum(year_of_purchase) +
+            sum(month_of_purchase) +
             sum(day_of_month) +
             sum(is_special_day) +
             sum(is_online_sale_offers) +
@@ -38,7 +37,6 @@ SELECT
             sum(quantity) +
             sum(item_price) +
             sum(shipping_price) +
-            sum(ship_postal_code) +
             sum(total_amount) +
             sum(profit_percentage) +
             sum(profit_inr) +
@@ -51,10 +49,9 @@ FROM all_2509.cross_join;
 SELECT
     round(
         sum(
-            id +
             qtr +
-            year +
-            month +
+            year_of_purchase +
+            month_of_purchase +
             day_of_month +
             is_special_day +
             is_online_sale_offers +
@@ -68,7 +65,6 @@ SELECT
             quantity +
             item_price +
             shipping_price +
-            ship_postal_code +
             total_amount +
             profit_percentage +
             profit_inr +
@@ -88,42 +84,42 @@ LIMIT 5;
 
 -- query7
 SELECT
-    id,
-    purchase_date,
-    ddmmyyyy,
-    time,
-    quarter,
-    qtr,
-    year,
-    month,
-    day_of_month,
-    is_special_day,
-    is_online_sale_offers,
-    day_of_week,
-    is_weekend,
-    is_morning,
-    is_afternoon,
-    is_evening,
-    is_night,
-    is_female,
-    customer_id,
-    gender,
-    product_name,
-    item_status,
-    quantity,
-    currency,
-    item_price,
-    shipping_price,
-    ship_city,
-    ship_state,
-    ship_postal_code,
-    category,
-    total_amount,
-    author,
-    publication,
-    profit_percentage,
-    profit_inr,
-    cost_price
+        id,
+        purchase_date,
+        ddmmyyyy,
+        time_of_purchase,
+        quarter_of_purchase,
+        qtr,
+        year_of_purchase,
+        month_of_purchase,
+        day_of_month,
+        is_special_day,
+        is_online_sale_offers,
+        day_of_week,
+        is_weekend,
+        is_morning,
+        is_afternoon,
+        is_evening,
+        is_night,
+        is_female,
+        customer_id,
+        gender,
+        product_name,
+        item_status,
+        quantity,
+        currency,
+        item_price,
+        shipping_price,
+        ship_city,
+        ship_state,
+        ship_postal_code,
+        category,
+        total_amount,
+        author,
+        publication_name,
+        profit_percentage,
+        profit_inr,
+        cost_price
 FROM all_2509.cross_join
 ORDER BY
     random()
